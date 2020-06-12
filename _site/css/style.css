@@ -1,0 +1,31 @@
+* {margin:0; padding:0;}
+body {width:100vw; height:100vh; display:flex; justify-content:center; align-items:center; background:#1b1b1b;}
+
+h1 {color: white; padding-bottom: 70px; font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;}
+
+.logo {height: 80px; width: 80px; border-radius:50%; margin-top: 40px;}
+.logo:hover {transform:scale(1.5); transition:0.6s ease-out;}
+
+.button {background:#805b10; color:#ffffff; font-size:4em; display:inline-block; height:160px; width:160px; line-height:160px; border-radius:50%; text-align:center; text-decoration:none; position:relative; transition:1s ease;}
+.button::before, .button::after {content:''; position:absolute; top:50%; left:50%; transform:translate(-50%,-50%) scale(0); border-radius:50%; border:1px solid #143A3D; z-index:-5; transition:0.6s ease-out;}
+.button:hover, .button:focus  {color:#ffffff}
+.button::before {width:calc(100% + 40px); height:calc(100% + 40px);}
+.button::after {width:calc(100% + 100px); height:calc(100% + 100px);}
+.button:hover::before, .button:hover::after, .button:focus::before, .button:focus::after  {transform:translate(-50%,-50%) scale(1);}
+
+.effect {position:absolute; border-radius:50%; left:50%; top:50%; transform:translate(-50%,-50%) scale(0.5); transition:0.6s ease-out; z-index:-1; width:0; height:0;}
+.effect.circle-1 {animation:gravitate 4s linear infinite;}
+.effect.circle-2 {animation:gravitate 8s linear infinite;}
+
+.button:hover .circle-1, .button:focus .circle-1 {width:100%; height:100%;}
+.button:hover .circle-2, .button:focus .circle-2 {width:calc(100% + 30px); height:calc(100% + 30px);}
+
+.effect::before, .effect::after {content:''; position:absolute; border-radius:50%;}
+.effect.circle-1:before {left:0; top:0; width:20px; height:20px; background:#ffdb4d;}
+.effect.circle-2:before {right:-15px; bottom:-15px; width:35px; height:35px; background:#ffd633;}
+
+
+@keyframes gravitate {
+  0% {transform:translate(-50%,-50%) rotate(0deg);}
+  100% {transform:translate(-50%,-50%) rotate(360deg);}
+}
